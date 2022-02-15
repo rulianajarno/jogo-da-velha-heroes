@@ -1,0 +1,52 @@
+.main-container {
+  .current-status {
+    font-family: fantasy;
+    color: rgb(242, 232, 232);
+  }
+  .instructionsList {
+    font-family: fantasy;
+    color: rgb(242, 232, 232);
+  }
+  .start-game-button {
+    background-color: rgb(191, 191, 191);
+    box-shadow: 2px 2px rgb(118, 118, 118);
+    font-family: fantasy;
+    border-radius: 10px 10px 10px 10px;
+    padding: 5px;
+    border: none;
+  }
+  .gameboard {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .player-one {
+      p {
+        color: rgb(83, 163, 83);
+      }
+    }
+
+    .player-two {
+      p {
+        color: rgb(230, 109, 109);
+      }
+    }
+
+    .gamefield {
+      max-width: 300px;
+      .subfield {
+        cursor: pointer;
+        height: 100px;
+        width: 100px;
+        border: 1px solid #fff;
+        &.player-one {
+          background: rgb(83, 163, 83);
+        }
+        &.player-two {
+          background: rgb(230, 109, 109);
+        }
+      }
+    }
+  }
+}

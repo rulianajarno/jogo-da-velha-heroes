@@ -1,0 +1,61 @@
+<div class="gamerTwo">
+  <div *ngIf="showProcurarB">
+    <p>Clique na logo, e busque seu personagem</p>
+    <form>
+      <input
+        placeholder="Digite aqui com quem irá salvar o mundo"
+        type="text"
+        id="personagem"
+        name="personagem"
+        minlength="3"
+        required
+        (input)="nomePesquisar = $event.target.value"
+      />
+      <img
+        (click)="buscaPersonagem()"
+        src="../../../assets/images/marvel-logo.png"
+      />
+    </form>
+
+    <ul>
+      <li
+        (click)="escolhePersonagemB(personagem.id)"
+        *ngFor="let personagem of personagens"
+      >
+        {{ personagem.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="showEscolhaB">
+    <section class="choice" *ngFor="let personagem of personagemJogadorB">
+      <img
+        class="photoChoice"
+        [src]="personagem.thumbnail.path + '.' + personagem.thumbnail.extension"
+      />
+      <p>{{ personagem.name }}</p>
+      <button (click)="escolherNovamenteB()" class="choice-button">
+        Change
+      </button>
+      <button
+        (click)="iniciarJogoB()"
+        class="choice-button"
+        style="margin-left: 5vh"
+      >
+        Choose!
+      </button>
+    </section>
+  </div>
+
+  <div *ngIf="showJogadorB">
+    <section class="start" *ngFor="let personagem of personagemJogadorB">
+      <p>Player Two is:</p>
+      <img
+        [src]="personagem.thumbnail.path + '.' + personagem.thumbnail.extension"
+      />
+      <p>{{ personagem.name }}</p>
+    </section>
+  </div>
+</div>
+
+<app-card-erro *ngIf="showErro"></app-card-erro>

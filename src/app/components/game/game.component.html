@@ -1,0 +1,89 @@
+<div class="main-container">
+  <div
+    class="field"
+    style="display: flex; justify-content: center; margin-bottom: -2vh"
+  >
+    <p class="current-status mat-display-2">Instruções do jogo:</p>
+  </div>
+
+  <div
+    *ngIf="this.game.gameStatus === 0"
+    class="field"
+    style="width: 100%; display: grid; justify-content: center"
+  >
+    <ul class="instructionsList">
+      <li>1. Selecione o player 1 no card à esquerda.</li>
+      <li>2. Selecione o player 2 no card à direita.</li>
+      <li>
+        3. Após a escolha de cada personagem, é só seguir a vez informada no
+        título, e iniciar o jogo.
+      </li>
+      <li>4. Aproveite!</li>
+    </ul>
+    <button (click)="startGame()" class="start-game-button">
+      Start tic-tac-toe!
+    </button>
+  </div>
+
+  <div *ngIf="this.game.gameStatus === 1" class="gameboard">
+    <div class="players player-one align-self-center"></div>
+    <app-player-one></app-player-one>
+
+    <div class="gamefield container-fluid">
+      <div class="row">
+        <div
+          (click)="clickSubfield($event)"
+          position="0"
+          class="subfield col-4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="1"
+          class="subfield col-4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="2"
+          class="subfield col-4"
+        ></div>
+      </div>
+      <div class="row">
+        <div
+          (click)="clickSubfield($event)"
+          position="3"
+          class="subfield col-4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="4"
+          class="subfield col-4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="5"
+          class="subfield col-4"
+        ></div>
+      </div>
+      <div class="row">
+        <div
+          (click)="clickSubfield($event)"
+          position="6"
+          class="subfield col-4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="7"
+          class="subfield col-4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="8"
+          class="subfield col-4"
+        ></div>
+      </div>
+    </div>
+
+    <div class="players player-two align-self-center"></div>
+    <app-player-two></app-player-two>
+  </div>
+</div>
